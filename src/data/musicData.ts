@@ -2,7 +2,7 @@ import { Artist, Song } from "@/types/music";
 
 // NOTE: These are placeholder audio URLs. Replace with actual audio files.
 // You can add your own audio files to the public folder and reference them here.
-const SAMPLE_AUDIO = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+const SAMPLE_AUDIO = "https://drive.google.com/file/d/1T4ecYljmxxWJeQ8iWGJG_89GnDk00DZ0/view";
 
 export const artists: Artist[] = [
   {
