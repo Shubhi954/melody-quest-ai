@@ -29,8 +29,13 @@ export const Player = ({ currentSong, isPlaying, onPlayPause, onNext, onPrevious
   useEffect(() => {
     if (audioRef.current && currentSong) {
       audioRef.current.src = currentSong.audioUrl;
+      audioRef.current.onerror = () => {
+        console.error("Failed to load audio:", currentSong.audioUrl);
+      };
       if (isPlaying) {
-        audioRef.current.play();
+        audioRef.current.play().catch(err => {
+          console.error("Failed to play audio:", err);
+        });
       }
     }
   }, [currentSong]);
@@ -38,7 +43,9 @@ export const Player = ({ currentSong, isPlaying, onPlayPause, onNext, onPrevious
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
-        audioRef.current.play();
+        audioRef.current.play().catch(err => {
+          console.error("Failed to play audio:", err);
+        });
       } else {
         audioRef.current.pause();
       }
